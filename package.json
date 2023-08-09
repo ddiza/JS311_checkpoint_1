@@ -1,7 +1,7 @@
 {
   "name": "311_checkpoint_1",
   "version": "1.0.0",
-  "description": "",
+  "description": "https://github.com/ddiza/JS311_checkpoint_1.git",
   "main": "index.js",
   "scripts": {
     "start": "nodemon index.js",
