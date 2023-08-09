@@ -1,13 +1,15 @@
 const users = require("../data/index")
 const sample = require("../data/sampleUser")
 
+//listUsers -> retrieves entire array from _data/index_
 const listUsers = (req, res) => {
   res.json(users)
 }
 
+//showUser -> retrieve just the user matching the passed-in ID
 const showUser = (req, res) => {
   if (req.params.id > users.length) {
-    res.sendStatus(404)
+    res.sendStatus(404) //ERROR HANDLING
   }
   users.forEach(user => {
     if (user.id == req.params.id) {
@@ -16,6 +18,7 @@ const showUser = (req, res) => {
   })
 }
 
+//createUser -> add a user to the array
 const createUser = (req, res) => {
   let counter = ++users.length
   users.push({
@@ -31,9 +34,10 @@ const createUser = (req, res) => {
   res.json(users[users.length - 1])
 }
 
+//updateUser -> update one user in the array based on its id
 const updateUser = (req, res) => {
   if (req.params.id > users.length) {
-    res.sendStatus(404)
+    res.sendStatus(404) //ERROR HANDLING
   }
   users.forEach(user => {
     if (user.id == req.params.id) {
@@ -44,9 +48,10 @@ const updateUser = (req, res) => {
   })
 }
 
+//deleteUser -> delete a user from the array based on its id
 const deleteUser = (req, res) => {
   if (req.params.id > users.length) {
-    res.sendStatus(404)
+    res.sendStatus(404) //ERROR HANDLING
   }
   users.forEach(user => {
     if (user.id == req.params.id) {
