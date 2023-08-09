@@ -19,6 +19,7 @@ const showUser = (req, res) => {
 }
 
 //createUser -> add a user to the array
+//POST: create new user
 const createUser = (req, res) => {
   let counter = ++users.length
   users.push({
@@ -35,9 +36,10 @@ const createUser = (req, res) => {
 }
 
 //updateUser -> update one user in the array based on its id
+//PUT: update a user
 const updateUser = (req, res) => {
   if (req.params.id > users.length) {
-    res.sendStatus(404) //ERROR HANDLING
+    res.sendStatus(400) //ERROR HANDLING
   }
   users.forEach(user => {
     if (user.id == req.params.id) {
@@ -49,9 +51,10 @@ const updateUser = (req, res) => {
 }
 
 //deleteUser -> delete a user from the array based on its id
+//DELETE: a user by its ID
 const deleteUser = (req, res) => {
   if (req.params.id > users.length) {
-    res.sendStatus(404) //ERROR HANDLING
+    res.sendStatus(400) //ERROR HANDLING
   }
   users.forEach(user => {
     if (user.id == req.params.id) {
